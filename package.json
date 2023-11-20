@@ -1,0 +1,29 @@
+{
+  "name": "bars",
+  "version": "1.0.0",
+  "description": "A playable bowed instrument that is accessible to disabled musicians.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --env=jsdom",
+    "build": "rm -rf ./dist/ && mkdir ./dist && cp ./index.html ./dist/index.html && cp ./main.css ./dist/main.css && cp -avr ./sounds/ ./dist/ && cp -avr ./images/ ./dist/ && esbuild index.js --bundle  --outfile=./dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gawainhewitt/bars.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gawainhewitt/bars/issues"
+  },
+  "homepage": "https://github.com/gawainhewitt/bars#readme",
+  "dependencies": {
+    "esbuild": "^0.14.43",
+    "tone": "^14.7.77"
+  },
+  "devDependencies": {
+    "jest-environment-jsdom": "^29.0.2",
+    "prettier": "2.7.1"
+  }
+}

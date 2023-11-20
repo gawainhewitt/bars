@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lines</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <div id="startscreen">
+      <img src="images/orchlablogo.png" alt="OrchLab Logo" id="orchlablogo" />
+      <div id="infotext">Loading...</div>
+      <img
+        src="images/LPO_logo.png"
+        alt="London Philharmonic Orchestra Logo"
+        id="lpologo"
+      />
+      <img src="images/DMLogo.png" alt="Drake Music Logo" id="dmlogo" />
+    </div>
+
+    <div id="optionscreen">
+      <div id="optionstop"></div>
+      <div id="optionsmiddle">
+        <div id="optionstopchordname">Top Chord Options</div>
+        <div id="optionstopchordkey">
+          <select name="select0key" id="select0key">
+            <option value="C">Key: C</option>
+            <option value="C#" selected>Key: C#/Db</option>
+            <option value="D">Key: D</option>
+            <option value="D#">Key: D#/Eb</option>
+            <option value="E">Key: E</option>
+            <option value="F">Key: F</option>
+            <option value="F#">Key: F#/Gb</option>
+            <option value="G">Key: G</option>
+            <option value="G#">Key: G#/Ab</option>
+            <option value="A">Key: A</option>
+            <option value="A#">Key: A#/Bb</option>
+            <option value="B">Key: B</option>
+          </select>
+        </div>
+        <div class="chord0colour"></div>
+        <div id="optionstopchordchordtype">
+          <select name="select0chordtype" id="select0chordtype">
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="dom7">Dom7</option>
+            <option value="maj7">Maj7</option>
+            <option value="min7">Min7</option>
+          </select>
+        </div>
+        <div class="chord0colour"></div>
+        <div id="optionstopchordstate">
+          <label class="switch">
+            <input type="checkbox" id="zerochordbutton" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+
+        <div id="optionsmiddlechordname">Middle Chord Options</div>
+        <div id="optionsmiddlechordkey">
+          <select name="select1key" id="select1key">
+            <option value="C" selected>Key: C</option>
+            <option value="C#">Key: C#/Db</option>
+            <option value="D">Key: D</option>
+            <option value="D#">Key: D#/Eb</option>
+            <option value="E">Key: E</option>
+            <option value="F">Key: F</option>
+            <option value="F#">Key: F#/Gb</option>
+            <option value="G">Key: G</option>
+            <option value="G#">Key: G#/Ab</option>
+            <option value="A">Key: A</option>
+            <option value="A#">Key: A#/Bb</option>
+            <option value="B">Key: B</option>
+          </select>
+        </div>
+        <div class="chord1colour"></div>
+        <div id="optionsmiddlechordchordtype">
+          <select name="select1chordtype" id="select1chordtype">
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="dom7">Dom7</option>
+            <option value="maj7">Maj7</option>
+            <option value="min7">Min7</option>
+          </select>
+        </div>
+        <div class="chord1colour"></div>
+        <div id="optionsmiddlechordstate">
+          <label class="switch">
+            <input type="checkbox" id="onechordbutton" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div id="optionsbottomchordname">Bottom Chord Options</div>
+        <div id="optionsbottomchordkey">
+          <select name="select2key" id="select2key">
+            <option value="C">Key: C</option>
+            <option value="C#">Key: C#/Db</option>
+            <option value="D">Key: D</option>
+            <option value="D#">Key: D#/Eb</option>
+            <option value="E">Key: E</option>
+            <option value="F" selected>Key: F</option>
+            <option value="F#">Key: F#/Gb</option>
+            <option value="G">Key: G</option>
+            <option value="G#">Key: G#/Ab</option>
+            <option value="A">Key: A</option>
+            <option value="A#">Key: A#/Bb</option>
+            <option value="B">Key: B</option>
+          </select>
+        </div>
+        <div class="chord2colour"></div>
+        <div id="optionsbottomchordchordtype">
+          <select name="select2chordtype" id="select2chordtype">
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="dom7">Dom7</option>
+            <option value="maj7">Maj7</option>
+            <option value="min7">Min7</option>
+          </select>
+        </div>
+        <div class="chord2colour"></div>
+        <div id="optionsbottomchordstate"></div>
+      </div>
+      <div>
+        <div id="backbutton">
+          <button type="button" class="button-style">SAVE</button>
+        </div>
+      </div>
+      <div id="optionsbottom"></div>
+    </div>
+
+    <div id="wrapper">
+      <div id="topbox">
+        <div id="inner-top-box">
+          <div id="aboutbutton">
+            <button class="button-style" role="button">ABOUT</button>
+          </div>
+          <div></div>
+          <div id="optionsbutton">
+            <button class="button-style" role="button">OPTIONS</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="chord-container">
+        <div id="zero">
+          <div id="chord0name">C#</div>
+          <div id="chord0type">major</div>
+        </div>
+        <div id="stringscontainer0">
+          <div id="c0s0"></div>
+          <div id="c0s1"></div>
+          <div id="c0s2"></div>
+          <div id="c0s3"></div>
+          <div id="c0s4"></div>
+          <div id="c0s5"></div>
+          <div id="c0s6"></div>
+          <div id="c0s7"></div>
+          <div id="c0s8"></div>
+          <div id="c0s9"></div>
+        </div>
+        <div id="chordzerorightspace"></div>
+        <div id="one">
+          <div id="chord1name">C</div>
+          <div id="chord1type">major</div>
+        </div>
+        <div id="stringscontainer1">
+          <div id="c1s0"></div>
+          <div id="c1s1"></div>
+          <div id="c1s2"></div>
+          <div id="c1s3"></div>
+          <div id="c1s4"></div>
+          <div id="c1s5"></div>
+          <div id="c1s6"></div>
+          <div id="c1s7"></div>
+          <div id="c1s8"></div>
+          <div id="c1s9"></div>
+        </div>
+        <div id="chordonerightspace"></div>
+        <div id="two">
+          <div id="chord2name">F</div>
+          <div id="chord2type">major</div>
+        </div>
+        <div id="stringscontainer2">
+          <div id="c2s0"></div>
+          <div id="c2s1"></div>
+          <div id="c2s2"></div>
+          <div id="c2s3"></div>
+          <div id="c2s4"></div>
+          <div id="c2s5"></div>
+          <div id="c2s6"></div>
+          <div id="c2s7"></div>
+          <div id="c2s8"></div>
+          <div id="c2s9"></div>
+        </div>
+        <div id="chordtworightspace"></div>
+      </div>
+
+      <div id="bottombox">
+        <p id="bttext"></p>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="bundle.js"></script>
+  </body>
+</html>
