@@ -2,14 +2,14 @@ const Tone = require("./node_modules/tone");
 
 const EventBinders = require("./eventBinders");
 const EventHandlers = require("./eventHandlers");
-const HarpSoundControl = require("./harpSoundControl");
+const BarsSoundControl = require("./barsSoundControl");
 const DomManager = require("./domManager");
 
 const eventBinders = new EventBinders();
-const harpSoundControl = new HarpSoundControl(Tone);
+const barsSoundControl = new BarsSoundControl(Tone);
 const domManager = new DomManager();
 const eventHandlers = new EventHandlers(
   eventBinders,
-  harpSoundControl,
+  barsSoundControl,
   domManager
 );

@@ -1,4 +1,4 @@
-const HarpSoundControl = require("../../harpSoundControl");
+const BarsSoundControl = require("../../barsSoundControl");
 
 const FakeTone = {
   start: async function () {
@@ -24,70 +24,70 @@ const FakeTone = {
 };
 
 describe("startAudio", () => {
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
   it("console logs 'Audio Started' once audio is started", async () => {
     const logSpy = jest.spyOn(console, "log");
 
-    await harpSoundControl.startAudio();
+    await barsSoundControl.startAudio();
 
     expect(logSpy).toHaveBeenCalledWith("Audio Started");
   });
 });
 
 describe("setUpSampler", () => {
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
   it("creates sampler", () => {
-    harpSoundControl.setUpSampler();
+    barsSoundControl.setUpSampler();
 
-    expect(harpSoundControl.sampler).toBeInstanceOf(FakeTone.Sampler);
+    expect(barsSoundControl.sampler).toBeInstanceOf(FakeTone.Sampler);
   });
-  it("creates reverb", () => expect(harpSoundControl.reverb).toEqual("blah"));
+  it("creates reverb", () => expect(barsSoundControl.reverb).toEqual("blah"));
   it("connect's sampler to reverb", () =>
-    expect(harpSoundControl.sampler.connect()).toEqual("daschunds rule!"));
+    expect(barsSoundControl.sampler.connect()).toEqual("daschunds rule!"));
 });
 
 describe("playNote", () => {
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
 
   it("plays a note", () => {
-    harpSoundControl.setUpSampler();
+    barsSoundControl.setUpSampler();
 
-    harpSoundControl.playNote({ chord: 0, string: 3 });
-    expect(harpSoundControl.sampler.theNote).toEqual("G4");
+    barsSoundControl.playNote({ chord: 0, string: 3 });
+    expect(barsSoundControl.sampler.theNote).toEqual("G4");
   });
 });
 
 describe("chooseRoot", () => {
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
 
   it("sets root note of chord", () => {
     const topChord = 0;
     const rootNoteF = "F";
     const fChord = ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"];
 
-    harpSoundControl.chooseRoot(topChord, rootNoteF);
+    barsSoundControl.chooseRoot(topChord, rootNoteF);
 
-    expect(harpSoundControl.chordArray[topChord]).toEqual(fChord);
+    expect(barsSoundControl.chordArray[topChord]).toEqual(fChord);
 
     const middleChord = 1;
     const rootNoteC = "C";
     const cChord = ["C3", "E3", "G3", "C4", "E4", "G4", "C5", "E5", "G5", "C6"];
 
-    harpSoundControl.chooseRoot(middleChord, rootNoteC);
+    barsSoundControl.chooseRoot(middleChord, rootNoteC);
 
-    expect(harpSoundControl.chordArray[middleChord]).toEqual(cChord);
+    expect(barsSoundControl.chordArray[middleChord]).toEqual(cChord);
   });
 });
 
 describe("chooseChord", () => {
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
 
   it("sets type of chord", () => {
     const bottomChord = 2;
     const chordType = "minor";
 
-    harpSoundControl.chooseChord(bottomChord, chordType);
+    barsSoundControl.chooseChord(bottomChord, chordType);
 
-    expect(harpSoundControl.chordType[bottomChord]).toEqual(chordType);
+    expect(barsSoundControl.chordType[bottomChord]).toEqual(chordType);
   });
 });

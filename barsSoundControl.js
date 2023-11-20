@@ -1,4 +1,4 @@
-class HarpSoundControl {
+class BarsSoundControl {
   constructor(Tone) {
     this.Tone = Tone;
     this.chordArray = [
@@ -105,4 +105,4 @@ class HarpSoundControl {
   }
 }
 
-module.exports = HarpSoundControl;
+module.exports = BarsSoundControl;

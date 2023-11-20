@@ -16,7 +16,7 @@ Object.defineProperty(window, "matchMedia", {
 
 const EventBinders = require("../../eventBinders");
 const EventHandlers = require("../../eventHandlers");
-const HarpSoundControl = require("../../harpSoundControl");
+const BarsSoundControl = require("../../barsSoundControl");
 const DomManager = require("../../domManager");
 
 const FakeTone = {
@@ -44,22 +44,22 @@ const FakeTone = {
 
 describe("setup", () => {
   const eventBinders = new EventBinders();
-  const harpSoundControl = new HarpSoundControl(FakeTone);
+  const barsSoundControl = new BarsSoundControl(FakeTone);
   const domManager = new DomManager();
   const eventHandlers = new EventHandlers(
     eventBinders,
-    harpSoundControl,
+    barsSoundControl,
     domManager
   );
 
   it("creates instance of class EventBinders", () =>
     expect(eventBinders).toBeInstanceOf(EventBinders));
-  it("creates instance of class HarpSoundControl", () =>
-    expect(harpSoundControl).toBeInstanceOf(HarpSoundControl));
+  it("creates instance of class BarsSoundControl", () =>
+    expect(barsSoundControl).toBeInstanceOf(BarsSoundControl));
   it("creates instance of class EventHandlers", () =>
     expect(eventHandlers).toBeInstanceOf(EventHandlers));
   test("eventHandlers has eventBinders injected", () =>
     expect(eventHandlers.eventBinders).toBeInstanceOf(EventBinders));
-  test("eventHandlers has harpSoundControl injected", () =>
-    expect(eventHandlers.harpSoundControl).toBeInstanceOf(HarpSoundControl));
+  test("eventHandlers has barsSoundControl injected", () =>
+    expect(eventHandlers.barsSoundControl).toBeInstanceOf(BarsSoundControl));
 });

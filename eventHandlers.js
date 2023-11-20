@@ -1,7 +1,7 @@
 class EventHandlers {
-  constructor(eventBinders, harpSoundControl, domManager) {
+  constructor(eventBinders, barsSoundControl, domManager) {
     this.eventBinders = eventBinders;
-    this.harpSoundControl = harpSoundControl;
+    this.barsSoundControl = barsSoundControl;
     this.domManager = domManager;
 
     this.ongoingTouches = [];
@@ -32,7 +32,7 @@ class EventHandlers {
     this.eventBinders.bindResizeWindow(this.setViewHeight);
     this.eventBinders.bindDetectPortrait(this.setViewHeight);
 
-    this.harpSoundControl.setUpSampler(this.displayStartButton);
+    this.barsSoundControl.setUpSampler(this.displayStartButton);
 
     this.domManager.setInitialClass();
     this.setViewHeight();
@@ -75,17 +75,17 @@ class EventHandlers {
   };
 
   start = () => {
-    this.harpSoundControl.startAudio();
+    this.barsSoundControl.startAudio();
     this.domManager.hideStart();
   };
 
   stringIsPlucked = (type, whichString) => {
     if (type === "mouse") {
       if (this.mouseDown) {
-        this.harpSoundControl.playNote(whichString);
+        this.barsSoundControl.playNote(whichString);
       }
     } else {
-      this.harpSoundControl.playNote(whichString);
+      this.barsSoundControl.playNote(whichString);
     }
   };
 
@@ -134,7 +134,7 @@ class EventHandlers {
 
   keyMenu = (e) => {
     this.domManager.changeChordName(e.srcElement.id[6], e.srcElement.value);
-    this.harpSoundControl.chooseRoot(e.srcElement.id[6], e.srcElement.value);
+    this.barsSoundControl.chooseRoot(e.srcElement.id[6], e.srcElement.value);
   };
 
   chordMenu = (e) => {
@@ -142,7 +142,7 @@ class EventHandlers {
     // console.log(e.srcElement.id[6]);
     // console.log(e.srcElement.value);
     this.domManager.changeChordType(e.srcElement.id[6], e.srcElement.value);
-    this.harpSoundControl.chooseChord(e.srcElement.id[6], e.srcElement.value);
+    this.barsSoundControl.chooseChord(e.srcElement.id[6], e.srcElement.value);
   };
 
   setViewHeight = () => {
