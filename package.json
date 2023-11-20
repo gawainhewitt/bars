@@ -23,6 +23,7 @@
     "tone": "^14.7.77"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.0.2",
     "prettier": "2.7.1"
   }
