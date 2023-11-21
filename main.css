@@ -8,11 +8,12 @@
   --vermillion: rgb(213, 94, 0);
   --reddishpurple: rgb(204, 121, 167);
 
-  --backgroundcolour: var(--skyblue);
-  --stringcolour: var(--orange);
-  --zerochordcolour: var(--yellow);
-  --onechordcolour: var(--reddishpurple);
-  --twochordcolour: var(--bluishgreen);
+  --backgroundcolour: var(--yellow);
+  --stringcolour: var(--reddishpurple);
+  --zerochordcolour: var(--orange);
+  --onechordcolour: var(--skyblue);
+  --twochordcolour: var(--vermillion);
+  --threechordcolour: var(--bluishgreen);
 
   --chordnamecolour: var(--black);
 
@@ -96,6 +97,10 @@ h1 {
   background-color: var(--twochordcolour);
 }
 
+.chord3colour {
+  background-color: var(--threechordcolour);
+}
+
 .chordname {
   font-size: 1em;
   text-align: center;
@@ -137,6 +142,13 @@ h1 {
 
 .two {
   background: var(--twochordcolour);
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.three {
+  background: var(--threechordcolour);
   flex: 1;
   flex-direction: column;
   justify-content: space-around;

@@ -6,32 +6,36 @@ class DomManager {
       "zero",
       "one",
       "two",
+      "three",
       "bottombox",
       "optionstop",
       "optionsmiddle",
       "optionsbottom",
       "backbutton"
     ];
-    const chordNames = ["chord0name", "chord1name", "chord2name"];
+    const chordNames = ["chord0name", "chord1name", "chord2name", "chord3name"];
     const stringContainers = [
       "stringscontainer0",
       "stringscontainer1",
-      "stringscontainer2"
+      "stringscontainer2",
+      "stringscontainer3"
     ];
     const rightspaces = [
       "chordzerorightspace",
       "chordonerightspace",
-      "chordtworightspace"
+      "chordtworightspace",
+      "chordthreerightspace"
     ];
     this.stringElementVisibility = [
-      ["#zero", "#one", "#two"],
-      ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2"],
-      ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace"]
+      ["#zero", "#one", "#two", "#three"],
+      ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2", "#stringscontainer3"],
+      ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace", "#chordthreerightspace"]
     ];
     const chordBackgroundColours = [
       "chord0colour",
       "chord1colour",
-      "chord2colour"
+      "chord2colour",
+      "chord3colour"
     ];
     const optionsChordBlocks = [
       [
@@ -54,7 +58,7 @@ class DomManager {
       ]
     ];
 
-    const chordType = ["chord0type", "chord1type", "chord2type"];
+    const chordType = ["chord0type", "chord1type", "chord2type", "chord3type"];
 
     for (const name of elementNames) {
       const element = document.querySelector(`#${name}`);
@@ -69,7 +73,7 @@ class DomManager {
       element.className = "stringscontainer";
       element.classList.add(chordBackgroundColours[i]);
     }
-    for (let chord = 0; chord < 3; chord++) {
+    for (let chord = 0; chord < stringContainers.length; chord++) {
       for (let string = 0; string < 10; string++) {
         const element = document.querySelector(`#c${chord}s${string}`);
         element.className = "string";
