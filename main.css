@@ -183,7 +183,7 @@ p {
   position: absolute;
 }
 
-.optionstop {
+.optionszero {
   height: 10vh;
   height: calc(var(--vh, 1vh) * 10);
   background: var(--backgroundcolour);
@@ -192,7 +192,7 @@ p {
   justify-content: space-around;
 }
 
-.optionsmiddle {
+.optionsone {
   background: var(--backgroundcolour);
   height: 80vh;
   height: calc(var(--vh, 1vh) * 80);
@@ -202,7 +202,7 @@ p {
   justify-content: space-around;
 }
 
-.optionsbottom {
+.optionstwo {
   height: 10vh;
   height: calc(var(--vh, 1vh) * 10);
   background: var(--backgroundcolour);

@@ -8,9 +8,9 @@ class DomManager {
       "two",
       "three",
       "bottombox",
-      "optionstop",
-      "optionsmiddle",
-      "optionsbottom",
+      "optionszero",
+      "optionsone",
+      "optionstwo",
       "backbutton"
     ];
     const chordNames = ["chord0name", "chord1name", "chord2name", "chord3name"];
@@ -39,22 +39,22 @@ class DomManager {
     ];
     const optionsChordBlocks = [
       [
-        "optionstopchordname",
-        "optionstopchordkey",
-        "optionstopchordchordtype",
-        "optionstopchordstate"
+        "optionszerochordname",
+        "optionszerochordkey",
+        "optionszerochordchordtype",
+        "optionszerochordstate"
       ],
       [
-        "optionsmiddlechordname",
-        "optionsmiddlechordkey",
-        "optionsmiddlechordchordtype",
-        "optionsmiddlechordstate"
+        "optionsonechordname",
+        "optionsonechordkey",
+        "optionsonechordchordtype",
+        "optionsonechordstate"
       ],
       [
-        "optionsbottomchordname",
-        "optionsbottomchordkey",
-        "optionsbottomchordchordtype",
-        "optionsbottomchordstate"
+        "optionstwochordname",
+        "optionstwochordkey",
+        "optionstwochordchordtype",
+        "optionstwochordstate"
       ]
     ];
 
