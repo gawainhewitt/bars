@@ -1,7 +1,8 @@
 class EventBinders {
   constructor() {
+    this.numberOfStrings = 4;
     this.stringsArray = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < this.numberOfStrings; i++) {
       this.stringsArray[i] = [];
       for (let j = 0; j < 10; j++) {
         this.stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
@@ -14,12 +15,16 @@ class EventBinders {
     this.aboutButton = document.querySelector("#aboutbutton");
     this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
+    this.twochordbutton = document.querySelector("#twochordbutton");
     this.zeroKeyDropdown = document.querySelector("#select0key");
     this.oneKeyDropdown = document.querySelector("#select1key");
     this.twoKeyDropdown = document.querySelector("#select2key");
+    this.threeKeyDropdown = document.querySelector("#select3key");
     this.zeroChordDropdown = document.querySelector("#select0chordtype");
     this.oneChordDropdown = document.querySelector("#select1chordtype");
     this.twoChordDropdown = document.querySelector("#select2chordtype");
+    this.threeChordDropdown = document.querySelector("#select3chordtype");
+
 
     this.portrait = window.matchMedia("(orientation: portrait)");
   }
@@ -30,6 +35,9 @@ class EventBinders {
     });
     this.onechordbutton.addEventListener("click", () => {
       handler(1, this.onechordbutton);
+    });
+    this.twochordbutton.addEventListener("click", () => {
+      handler(2, this.twochordbutton);
     });
   }
 
@@ -44,7 +52,7 @@ class EventBinders {
   }
 
   bindMouseEnter(handler) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < this.numberOfStrings; i++) {
       for (let j = 0; j < 10; j++) {
         this.stringsArray[i][j].addEventListener("mouseenter", () => {
           handler("mouse", { chord: i, string: j });
@@ -72,7 +80,7 @@ class EventBinders {
   }
 
   bindStringClick(handler) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < this.numberOfStrings; i++) {
       for (let j = 0; j < 10; j++) {
         this.stringsArray[i][j].addEventListener("mousedown", () => {
           handler("mouseClick", { chord: i, string: j });
@@ -117,12 +125,14 @@ class EventBinders {
     this.zeroKeyDropdown.addEventListener("change", handler);
     this.oneKeyDropdown.addEventListener("change", handler);
     this.twoKeyDropdown.addEventListener("change", handler);
+    this.threeKeyDropdown.addEventListener("change", handler);
   }
 
   bindChordDropDown(handler) {
     this.zeroChordDropdown.addEventListener("change", handler);
     this.oneChordDropdown.addEventListener("change", handler);
     this.twoChordDropdown.addEventListener("change", handler);
+    this.threeChordDropdown.addEventListener("change", handler);
   }
 
   bindResizeWindow(handler) {

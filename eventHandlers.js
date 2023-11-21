@@ -10,7 +10,7 @@ class EventHandlers {
     this.buttonCount = 0;
     this.mouseDown = false;
     this.keyIsDown = {};
-    this.chordState = [false, false, true];
+    this.chordState = [false, false, true, true];
 
     this.eventBinders.bindMouseEnter(this.stringIsPlucked);
     this.eventBinders.bindStringClick(this.stringIsPlucked);
@@ -43,9 +43,11 @@ class EventHandlers {
   initialiseChordButtons() {
     let zerochordbutton = document.querySelector("#zerochordbutton");
     let onechordbutton = document.querySelector("#onechordbutton");
+    let twochordbutton = document.querySelector("#twochordbutton");
 
     zerochordbutton.click();
     onechordbutton.click();
+    twochordbutton.click();
   }
 
   switchChords = (button, element) => {
@@ -80,6 +82,7 @@ class EventHandlers {
   };
 
   stringIsPlucked = (type, whichString) => {
+    console.log(`pluck ${type}, ${whichString}`);
     if (type === "mouse") {
       if (this.mouseDown) {
         this.barsSoundControl.playNote(whichString);
@@ -107,6 +110,7 @@ class EventHandlers {
 
   handleKeyDown = (e) => {
     let key = e.code;
+    console.log(key);
     if (key in this.keyIsDown === false) {
       this.keyIsDown[key] = true;
       this.#whichKey(key);
@@ -120,10 +124,11 @@ class EventHandlers {
 
   #whichKey = (key) => {
     // prettier-ignore
-    const chords = [['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP'],
+    const chords = [['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0'],
+                    ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP'],
                     ['KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon'],
                     ['KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash']];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < chords.length; i++) {
       for (let j = 0; j < 10; j++) {
         if (key === chords[i][j] && this.chordState[i]) {
           this.stringIsPlucked("key", { chord: i, string: j });
@@ -146,7 +151,6 @@ class EventHandlers {
   };
 
   setViewHeight = () => {
-    console.log("set view height");
     this.domManager.setViewHeight();
   };
 
@@ -235,7 +239,7 @@ class EventHandlers {
       // console.log(`element = ${el.id}`);
 
       if (this.#isNewTouchOnElement(i, el.id)) {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < this.eventBinders.numberOfStrings; i++) {
           for (let j = 0; j < 10; j++) {
             if (el.id === `c${i}s${j}`) {
               this.stringIsPlucked("touch", { chord: i, string: j });

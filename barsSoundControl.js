@@ -2,9 +2,10 @@ class BarsSoundControl {
   constructor(Tone) {
     this.Tone = Tone;
     this.chordArray = [
-      ["C#3", "F3", "G#3", "C#4", "F4", "G#4", "C#5", "F5", "G#5", "C#6"],
       ["C3", "E3", "G3", "C4", "E4", "G4", "C5", "E5", "G5", "C6"],
-      ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"]
+      ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"],
+      ["G3", "B3", "D4", "G4", "B4", "D5", "G5", "B5", "D6", "G6"],
+      ["A3", "C4", "E4", "A4", "C5", "E5", "A5", "C6", "E6", "A6"]
     ];
 
     // prettier-ignore
@@ -24,9 +25,9 @@ class BarsSoundControl {
       min7: [0, 3, 7, 10, 12, 15, 19, 22, 24, 27]
     };
 
-    this.chordType = ["major", "major", "major"];
+    this.chordType = ["major", "major", "major", "minor"];
 
-    this.noteOffset = [7, 5, 0];
+    this.noteOffset = [7, 5, 0, 0];
   }
 
   chooseRoot(chordPosition, rootNote) {

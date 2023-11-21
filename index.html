@@ -22,11 +22,11 @@
     <div id="optionscreen">
       <div id="optionszero"></div>
       <div id="optionsone">
-        <div id="optionszerochordname">Top Chord Options</div>
+        <div id="optionszerochordname">String 1 Options</div>
         <div id="optionszerochordkey">
           <select name="select0key" id="select0key">
-            <option value="C">Key: C</option>
-            <option value="C#" selected>Key: C#/Db</option>
+            <option value="C" selected>Key: C</option>
+            <option value="C#">Key: C#/Db</option>
             <option value="D">Key: D</option>
             <option value="D#">Key: D#/Eb</option>
             <option value="E">Key: E</option>
@@ -57,15 +57,15 @@
           </label>
         </div>
 
-        <div id="optionsonechordname">Middle Chord Options</div>
+        <div id="optionsonechordname">String 2 Options</div>
         <div id="optionsonechordkey">
           <select name="select1key" id="select1key">
-            <option value="C" selected>Key: C</option>
+            <option value="C">Key: C</option>
             <option value="C#">Key: C#/Db</option>
             <option value="D">Key: D</option>
             <option value="D#">Key: D#/Eb</option>
             <option value="E">Key: E</option>
-            <option value="F">Key: F</option>
+            <option value="F" selected>Key: F</option>
             <option value="F#">Key: F#/Gb</option>
             <option value="G">Key: G</option>
             <option value="G#">Key: G#/Ab</option>
@@ -91,7 +91,7 @@
             <span class="slider round"></span>
           </label>
         </div>
-        <div id="optionstwochordname">Bottom Chord Options</div>
+        <div id="optionstwochordname">String 3 Options</div>
         <div id="optionstwochordkey">
           <select name="select2key" id="select2key">
             <option value="C">Key: C</option>
@@ -99,9 +99,9 @@
             <option value="D">Key: D</option>
             <option value="D#">Key: D#/Eb</option>
             <option value="E">Key: E</option>
-            <option value="F" selected>Key: F</option>
+            <option value="F">Key: F</option>
             <option value="F#">Key: F#/Gb</option>
-            <option value="G">Key: G</option>
+            <option value="G" selected>Key: G</option>
             <option value="G#">Key: G#/Ab</option>
             <option value="A">Key: A</option>
             <option value="A#">Key: A#/Bb</option>
@@ -119,8 +119,43 @@
           </select>
         </div>
         <div class="chord2colour"></div>
-        <div id="optionstwochordstate"></div>
+        <div id="optionstwochordstate">
+          <label class="switch">
+            <input type="checkbox" id="twochordbutton" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div id="optionsthreechordname">String 4 Options</div>
+        <div id="optionsthreechordkey">
+          <select name="select3key" id="select3key">
+            <option value="C">Key: C</option>
+            <option value="C#">Key: C#/Db</option>
+            <option value="D">Key: D</option>
+            <option value="D#">Key: D#/Eb</option>
+            <option value="E">Key: E</option>
+            <option value="F">Key: F</option>
+            <option value="F#">Key: F#/Gb</option>
+            <option value="G">Key: G</option>
+            <option value="G#">Key: G#/Ab</option>
+            <option value="A" selected>Key: A</option>
+            <option value="A#">Key: A#/Bb</option>
+            <option value="B">Key: B</option>
+          </select>
+        </div>
+        <div class="chord3colour"></div>
+        <div id="optionsthreechordchordtype">
+          <select name="select3chordtype" id="select3chordtype">
+            <option value="major">Major</option>
+            <option value="minor" selected>Minor</option>
+            <option value="dom7">Dom7</option>
+            <option value="maj7">Maj7</option>
+            <option value="min7">Min7</option>
+          </select>
+        </div>
+        <div class="chord3colour"></div>
+        <div id="optionsthreechordstate"></div>
       </div>
+      
       <div>
         <div id="backbutton">
           <button type="button" class="button-style">SAVE</button>
@@ -144,7 +179,7 @@
 
       <div id="chord-container">
         <div id="zero">
-          <div id="chord0name">C#</div>
+          <div id="chord0name">C</div>
           <div id="chord0type">major</div>
         </div>
         <div id="stringscontainer0">
@@ -161,7 +196,7 @@
         </div>
         <div id="chordzerorightspace"></div>
         <div id="one">
-          <div id="chord1name">C</div>
+          <div id="chord1name">F</div>
           <div id="chord1type">major</div>
         </div>
         <div id="stringscontainer1">
@@ -178,7 +213,7 @@
         </div>
         <div id="chordonerightspace"></div>
         <div id="two">
-          <div id="chord2name">F</div>
+          <div id="chord2name">G</div>
           <div id="chord2type">major</div>
         </div>
         <div id="stringscontainer2">
@@ -195,8 +230,8 @@
         </div>
         <div id="chordtworightspace"></div>
         <div id="three">
-          <div id="chord3name">H</div>
-          <div id="chord3type">major</div>
+          <div id="chord3name">A</div>
+          <div id="chord3type">minor</div>
         </div>
         <div id="stringscontainer3">
           <div id="c3s0"></div>

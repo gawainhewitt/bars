@@ -55,6 +55,12 @@ class DomManager {
         "optionstwochordkey",
         "optionstwochordchordtype",
         "optionstwochordstate"
+      ],
+      [
+        "optionsthreechordname",
+        "optionsthreechordkey",
+        "optionsthreechordchordtype",
+        "optionsthreechordstate"
       ]
     ];
 
