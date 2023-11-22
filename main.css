@@ -157,7 +157,7 @@ h1 {
 .string {
   background: var(--stringcolour);
   opacity: 0.05;
-  width: 5vw;
+  width: 7vw;
 }
 
 @media (max-width: 800px) {
