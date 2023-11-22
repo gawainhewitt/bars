@@ -13,7 +13,7 @@ class EventHandlers {
     this.chordState = [false, false, true, true];
 
     this.eventBinders.bindMouseEnter(this.stringIsBowed);
-    this.eventBinders.bindMouseLeave(this.endBow);
+    // this.eventBinders.bindMouseLeave(this.endBow);
     this.eventBinders.bindStringClick(this.stringIsBowed);
     this.eventBinders.bindSelectStart(this.disableSelect);
     this.eventBinders.bindMouseDown(this.registerMouseDown);
@@ -94,10 +94,10 @@ class EventHandlers {
     }
   };
 
-  endBow = (type, whichString) => {
-    // console.log(`end bow ${type}, ${whichString}`);
-    this.barsSoundControl.notBowing(whichString);
-  };
+  // endBow = (type, whichString) => {
+  //   // console.log(`end bow ${type}, ${whichString}`);
+  //   this.barsSoundControl.notBowing(whichString);
+  // };
 
   disableSelect = (e) => {
     e.preventDefault();

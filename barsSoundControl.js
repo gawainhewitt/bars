@@ -197,7 +197,7 @@ class BarsSoundControl {
   }
 
   checktime = () => {
-    let stopNoteTime = 500;
+    let stopNoteTime = 300;
     // console.log("checktime)");
     let time = performance.now();
     for(let i = 0; i < 4; i++){
@@ -227,16 +227,16 @@ class BarsSoundControl {
     }
   }
 
-  notBowing(whichString) {
-    // console.log("not bowing");
-    // let time = performance.now();
-    // let elapsedTime = time - this.stringsStatus[whichString.string].time;
-    // console.log(`elapsed time ${elapsedTime}`);
-    // if(elapsedTime > 3000){
-    //   this.stopNote(whichString)
-    //   this.stringsStatus[whichString.string].time = time; 
-    // }
-  }
+  // notBowing(whichString) {
+  //   // console.log("not bowing");
+  //   // let time = performance.now();
+  //   // let elapsedTime = time - this.stringsStatus[whichString.string].time;
+  //   // console.log(`elapsed time ${elapsedTime}`);
+  //   // if(elapsedTime > 3000){
+  //   //   this.stopNote(whichString)
+  //   //   this.stringsStatus[whichString.string].time = time; 
+  //   // }
+  // }
 
   playNote(whichString) {
     this.synth.triggerAttack(
