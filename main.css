@@ -9,7 +9,7 @@
   --reddishpurple: rgb(204, 121, 167);
 
   --backgroundcolour: var(--yellow);
-  --stringcolour: var(--reddishpurple);
+  --stringcolour: var(--black);
   --zerochordcolour: var(--orange);
   --onechordcolour: var(--skyblue);
   --twochordcolour: var(--vermillion);
@@ -156,7 +156,8 @@ h1 {
 
 .string {
   background: var(--stringcolour);
-  width: 2vw;
+  opacity: 0.05;
+  width: 5vw;
 }
 
 @media (max-width: 800px) {

@@ -99,8 +99,91 @@ class BarsSoundControl {
     });
   }
 
+  setUpSynth() {
+    const envFreq = 4000;
+    const cutoffFreq = 1;
+    const ampEnv = {
+      a : 1,
+      d : 1,
+      s : 0.6,
+      r : 2
+    }
+    const filterEnv = {
+      a : 1,
+      d : 1,
+      s : 0.6,
+      r : 5
+    }
+    this.chorus = new this.Tone.Chorus(4, 1, 0.1).start().connect(this. reverb);
+    this.synth = new this.Tone.PolySynth(
+      { voice:  this.Tone.DuoSynth, // try duosynth to mix square and triangle - also look at looping on the sampler again
+        maxPolyphony: 8,
+        options: {  "vibratoAmount" : 0.2 ,
+                    "vibratoRate" : 2 ,
+                    "harmonicity" : 2.02 ,
+                    "voice0" : {
+                      "volume" : -22 ,
+                      "portamento" : 0 ,
+                      "oscillator" : {
+                        "type" : "square"
+                      },
+                      "filter": {
+                        "Q": 0,
+                        "rolloff": -12,
+                        "type": "lowpass",
+                        "frequency": cutoffFreq
+                      },
+                      "filterEnvelope" : {
+                        "attack" : filterEnv.a ,
+                        "decay" : filterEnv.d ,
+                        "sustain" : filterEnv.s ,
+                        "release" : filterEnv.r,
+                        "octaves" : -0.2,
+                        "baseFrequency" : envFreq
+                      }
+                      ,
+                      "envelope" : {
+                        "attack" : ampEnv.a ,
+                        "decay" : ampEnv.d ,
+                        "sustain" : ampEnv.s ,
+                        "release" : ampEnv.r
+                      }
+                    }
+                    ,
+                    "voice1" : {
+                      "volume" : -28 ,
+                      "portamento" : 0 ,
+                      "oscillator" : {
+                        "type" : "sawtooth"
+                      },
+                      "filter": {
+                          "Q": 0,
+                          "rolloff": -12,
+                          "type": "lowpass",
+                          "frequency": cutoffFreq
+                      },
+                      "filterEnvelope" : {
+                        "attack" : filterEnv.a ,
+                        "decay" : filterEnv.d ,
+                        "sustain" : filterEnv.s ,
+                        "release" : filterEnv.r,
+                        "octaves" : -0.2,
+                        "baseFrequency" : envFreq
+                      }
+                      ,
+                      "envelope" : {
+                        "attack" : ampEnv.a ,
+                        "decay" : ampEnv.d,
+                        "sustain" : ampEnv.s,
+                        "release" : ampEnv.r                     
+                      }
+                    } 
+                  }
+      }).connect(this.chorus);
+  }
+
   playNote(whichString) {
-    this.sampler.triggerAttack(
+    this.synth.triggerAttack(
       this.chordArray[whichString.chord][whichString.string],
       this.Tone.now()
     );

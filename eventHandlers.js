@@ -33,6 +33,7 @@ class EventHandlers {
     this.eventBinders.bindDetectPortrait(this.setViewHeight);
 
     this.barsSoundControl.setUpSampler(this.displayStartButton);
+    this.barsSoundControl.setUpSynth();
 
     this.domManager.setInitialClass();
     this.setViewHeight();
