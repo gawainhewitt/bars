@@ -12,8 +12,9 @@ class EventHandlers {
     this.keyIsDown = {};
     this.chordState = [false, false, true, true];
 
-    this.eventBinders.bindMouseEnter(this.stringIsPlucked);
-    this.eventBinders.bindStringClick(this.stringIsPlucked);
+    this.eventBinders.bindMouseEnter(this.stringIsBowed);
+    this.eventBinders.bindMouseLeave(this.endBow);
+    this.eventBinders.bindStringClick(this.stringIsBowed);
     this.eventBinders.bindSelectStart(this.disableSelect);
     this.eventBinders.bindMouseDown(this.registerMouseDown);
     this.eventBinders.bindMouseUp(this.registerMouseUp);
@@ -34,7 +35,7 @@ class EventHandlers {
 
     this.barsSoundControl.setUpSampler(this.displayStartButton);
     this.barsSoundControl.setUpSynth();
-
+    
     this.domManager.setInitialClass();
     this.setViewHeight();
 
@@ -82,15 +83,20 @@ class EventHandlers {
     this.domManager.hideStart();
   };
 
-  stringIsPlucked = (type, whichString) => {
-    console.log(`pluck ${type}, ${whichString}`);
+  stringIsBowed = (type, whichString) => {
+    // console.log(`bow ${type}, ${whichString}`);
     if (type === "mouse") {
       if (this.mouseDown) {
-        this.barsSoundControl.playNote(whichString);
+        this.barsSoundControl.bowing(whichString);
       }
     } else {
-      this.barsSoundControl.playNote(whichString);
+      this.barsSoundControl.bowing(whichString);
     }
+  };
+
+  endBow = (type, whichString) => {
+    // console.log(`end bow ${type}, ${whichString}`);
+    this.barsSoundControl.notBowing(whichString);
   };
 
   disableSelect = (e) => {
@@ -107,6 +113,7 @@ class EventHandlers {
 
   registerMouseUp = () => {
     this.mouseDown = false;
+
   };
 
   handleKeyDown = (e) => {
@@ -132,7 +139,7 @@ class EventHandlers {
     for (let i = 0; i < chords.length; i++) {
       for (let j = 0; j < 10; j++) {
         if (key === chords[i][j] && this.chordState[i]) {
-          this.stringIsPlucked("key", { chord: i, string: j });
+          this.stringIsBowed("key", { string: i, position: j });
         }
       }
     }
@@ -243,7 +250,7 @@ class EventHandlers {
         for (let i = 0; i < this.eventBinders.numberOfStrings; i++) {
           for (let j = 0; j < 10; j++) {
             if (el.id === `c${i}s${j}`) {
-              this.stringIsPlucked("touch", { chord: i, string: j });
+              this.stringIsBowed("touch", { string: i, position: j });
             }
           }
         }

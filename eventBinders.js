@@ -55,7 +55,17 @@ class EventBinders {
     for (let i = 0; i < this.numberOfStrings; i++) {
       for (let j = 0; j < 10; j++) {
         this.stringsArray[i][j].addEventListener("mouseenter", () => {
-          handler("mouse", { chord: i, string: j });
+          handler("mouse", { string: i, position: j });
+        });
+      }
+    }
+  }
+
+  bindMouseLeave(handler) {
+    for (let i = 0; i < this.numberOfStrings; i++) {
+      for (let j = 0; j < 10; j++) {
+        this.stringsArray[i][j].addEventListener("mouseleave", () => {
+          handler("mouse", { string: i, position: j });
         });
       }
     }
@@ -83,7 +93,7 @@ class EventBinders {
     for (let i = 0; i < this.numberOfStrings; i++) {
       for (let j = 0; j < 10; j++) {
         this.stringsArray[i][j].addEventListener("mousedown", () => {
-          handler("mouseClick", { chord: i, string: j });
+          handler("mouseClick", { string: i, position: j });
         });
       }
     }
