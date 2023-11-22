@@ -71,7 +71,8 @@ class BarsSoundControl {
   setUpSampler(callback) {
     this.sampler = new this.Tone.Sampler({
       urls: {
-        C4: "Harp-C4.mp3"
+        B2: "42242__timkahn__c_s-cello-b3.flac",
+        B4: "42244__timkahn__c_s-cello-b5.flac"
       },
       baseUrl: "/sounds/",
       onload: () => {
