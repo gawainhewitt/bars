@@ -1,18 +1,22 @@
 class EventBinders {
   constructor() {
     this.numberOfStrings = 4;
+    this.numberOfZones = 10;
     this.stringsArray = [];
+    this.pluckArray = [];
     for (let i = 0; i < this.numberOfStrings; i++) {
+      this.pluckArray[i] = document.querySelector(`#pluck${i}`)
       this.stringsArray[i] = [];
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < this.numberOfZones; j++) {
         this.stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);
       }
     }
     this.chordContainer = document.querySelector("#chord-container");
     this.startscreen = document.querySelector("#startscreen");
     this.backbutton = document.querySelector("#backbutton");
-    this.optionsButton = document.querySelector("#optionsbutton");
     this.aboutButton = document.querySelector("#aboutbutton");
+    this.bowingButton = document.querySelector("#bowingbutton");
+    this.optionsButton = document.querySelector("#optionsbutton");
     this.zerochordbutton = document.querySelector("#zerochordbutton");
     this.onechordbutton = document.querySelector("#onechordbutton");
     this.twochordbutton = document.querySelector("#twochordbutton");
@@ -51,7 +55,7 @@ class EventBinders {
 
   bindMouseEnter(handler) {
     for (let i = 0; i < this.numberOfStrings; i++) {
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < this.numberOfZones; j++) {
         this.stringsArray[i][j].addEventListener("mouseenter", () => {
           handler("mouse", { string: i, position: j });
         });
@@ -61,7 +65,7 @@ class EventBinders {
 
   bindMouseLeave(handler) {
     for (let i = 0; i < this.numberOfStrings; i++) {
-      for (let j = 0; j < 10; j++) {
+      for (let j = 0; j < this.numberOfZones; j++) {
         this.stringsArray[i][j].addEventListener("mouseleave", () => {
           handler("mouse", { string: i, position: j });
         });
@@ -87,13 +91,11 @@ class EventBinders {
     });
   }
 
-  bindStringClick(handler) {
+  bindMouseClick(handler) { 
     for (let i = 0; i < this.numberOfStrings; i++) {
-      for (let j = 0; j < 10; j++) {
-        this.stringsArray[i][j].addEventListener("mousedown", () => {
-          handler("mouseClick", { string: i, position: j });
+      this.pluckArray[i].addEventListener("mousedown", () => {
+          handler("mouseClick", i);
         });
-      }
     }
   }
 
@@ -121,12 +123,16 @@ class EventBinders {
     document.addEventListener("keyup", handler);
   }
 
-  bindOptionsButton(handler) {
-    this.optionsButton.addEventListener("click", handler);
-  }
-
   bindAboutButton(handler) {
     this.aboutButton.addEventListener("click", handler);
+  }
+
+  bindBowingButton(handler) {
+    this.bowingButton.addEventListener("click", handler);
+  }
+
+  bindOptionsButton(handler) {
+    this.optionsButton.addEventListener("click", handler);
   }
 
   bindKeyDropDown(handler) {

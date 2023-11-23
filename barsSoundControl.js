@@ -217,7 +217,7 @@ class BarsSoundControl {
   bowing(whichString) {
     let time = performance.now();
     if(!this.stringsStatus[whichString.string].playing){
-      this.playNote(whichString);
+      this.bowNote(whichString);
       console.log("bowing");
       this.stringsStatus[whichString.string].playing = true;
       this.stringsStatus[whichString.string].time = time;
@@ -227,6 +227,13 @@ class BarsSoundControl {
       this.stringsStatus[whichString.string].time = time;
       // console.log(this.stringsStatus[whichString.string].time);
     }
+  }
+
+  pluckNote(whichString) {
+    this.sampler.triggerAttack(
+      this.strings[whichString],
+      this.Tone.now()
+    );
   }
 
   // notBowing(whichString) {
@@ -240,7 +247,7 @@ class BarsSoundControl {
   //   // }
   // }
 
-  playNote(whichString) {
+  bowNote(whichString) {
     this.synth.triggerAttack(
       this.strings[whichString.string],
       this.Tone.now()

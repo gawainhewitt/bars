@@ -9,12 +9,13 @@ class EventHandlers {
     this.mouseEnterCount = 0;
     this.buttonCount = 0;
     this.mouseDown = false;
+    this.bowingButtonText = "bowing";
     this.keyIsDown = {};
     this.chordState = [false, false, true, true];
 
     this.eventBinders.bindMouseEnter(this.stringIsBowed);
     // this.eventBinders.bindMouseLeave(this.endBow);
-    this.eventBinders.bindStringClick(this.stringIsBowed);
+    this.eventBinders.bindMouseClick(this.stringIsPlucked);
     this.eventBinders.bindSelectStart(this.disableSelect);
     this.eventBinders.bindMouseDown(this.registerMouseDown);
     this.eventBinders.bindMouseUp(this.registerMouseUp);
@@ -27,6 +28,7 @@ class EventHandlers {
     this.eventBinders.bindChordButtons(this.switchChords);
     this.eventBinders.bindOptionsButton(this.enterOptionScreen);
     this.eventBinders.bindAboutButton(this.aboutScreen);
+    this.eventBinders.bindBowingButton(this.handleBowingButton);
     this.eventBinders.bindBackButton(this.leaveOptionScreen);
     this.eventBinders.bindKeyDropDown(this.keyMenu);
     this.eventBinders.bindChordDropDown(this.chordMenu);
@@ -73,6 +75,22 @@ class EventHandlers {
     this.domManager.showOptions();
   };
 
+  handleBowingButton = () => {
+    this.bowingButtonText === "bowing" ? this.bowingButtonText = "plucking" : this.bowingButtonText = "bowing";
+    this.domManager.changeBowingButtonStyle(this.bowingButtonText);
+    this.handleStringVisibility(this.bowingButtonText);
+  }
+
+  handleStringVisibility = (bowingState) => {
+    if(bowingState === "bowing") {
+      this.domManager.showStrings(this.eventBinders.numberOfStrings, this.eventBinders.stringsArray) 
+      this.domManager.hidePluck(this.eventBinders.numberOfStrings, this.eventBinders.pluckArray);
+    } else {
+      this.domManager.hideStrings(this.eventBinders.numberOfStrings, this.eventBinders.stringsArray)
+      this.domManager.showPluck(this.eventBinders.numberOfStrings, this.eventBinders.pluckArray);
+    }
+  }
+
   displayStartButton = () => {
     this.eventBinders.bindStartScreen(this.start);
     this.domManager.showStart();
@@ -93,6 +111,11 @@ class EventHandlers {
       this.barsSoundControl.bowing(whichString);
     }
   };
+
+  stringIsPlucked = (type, whichString) => {
+    console.log(`pluck ${whichString}`);
+    this.barsSoundControl.pluckNote(whichString);
+  }
 
   // endBow = (type, whichString) => {
   //   // console.log(`end bow ${type}, ${whichString}`);
@@ -247,7 +270,10 @@ class EventHandlers {
 
       if (this.#isNewTouchOnElement(i, el.id)) {
         for (let i = 0; i < this.eventBinders.numberOfStrings; i++) {
-          for (let j = 0; j < 10; j++) {
+          if (el.id === `pluck${i}`) {
+              this.stringIsPlucked("touch", i);
+          }
+          for (let j = 0; j < this.eventBinders.numberOfZones; j++) {
             if (el.id === `c${i}s${j}`) {
               this.stringIsBowed("touch", { string: i, position: j });
             }

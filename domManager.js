@@ -157,6 +157,55 @@ class DomManager {
     document.querySelector("#startscreen").className = "startscreen";
   }
 
+  changeBowingButtonStyle(name) {
+    const blue = "rgb(0, 114, 178)";
+    const reddishpurple = "rgb(204, 121, 167)";
+    const styles = {
+      bowing: {
+        backgroundColor: blue,
+        boxShadow: `6px 0px 0px ${reddishpurple}`
+      },
+      plucking: {
+        backgroundColor: reddishpurple,
+        boxShadow: `6px 0px 0px ${blue}`
+      }
+    }
+    const button = document.querySelector("#bowingbuttontext")
+    button.innerHTML = name.toUpperCase();
+    button.style.backgroundColor = styles[name].backgroundColor;
+    button.style.boxShadow = styles[name].boxShadow;
+  }
+
+  showStrings(numberOfStrings, stringsArray) {
+    for (let i = 0; i < numberOfStrings; i++) {
+      for (let j = 0; j < stringsArray[i].length; j++) {
+        stringsArray[i][j].className = "string";
+      };
+    }
+  }
+
+  hideStrings(numberOfStrings, stringsArray) {
+    for (let i = 0; i < numberOfStrings; i++) {
+      for (let j = 0; j < stringsArray[i].length; j++) {
+        stringsArray[i][j].className = "invisible";
+      };
+    }
+  }
+
+  showPluck(numberOfStrings, pluckArray) {
+    console.log("show pluck");
+    for (let i = 0; i < numberOfStrings; i++) {
+      pluckArray[i].className = "pluck-container";
+    }
+  }
+
+  hidePluck(numberOfStrings, pluckArray) {
+    console.log("hide pluck");
+    for (let i = 0; i < numberOfStrings; i++) {
+      pluckArray[i].className = "invisible";
+    }
+  }
+
   hideStart() {
     document.querySelector("#startscreen").className = "invisible";
     this.optionsInvisible();

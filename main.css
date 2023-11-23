@@ -17,7 +17,7 @@
 
   --chordnamecolour: var(--black);
 
-  --buttoncolour: var(--reddishpurple);
+  --buttoncolour: var(--blue);
 }
 
 * {
@@ -99,6 +99,12 @@ h1 {
 
 .chord3colour {
   background-color: var(--threechordcolour);
+}
+
+.pluck-container {
+  background-color: var(--stringcolour);
+  width: 100%;
+  opacity: 0.05;
 }
 
 .chordname {
@@ -265,16 +271,16 @@ p {
 /* button styling */
 
 .button-style {
-  width: 120px;
+  width: 80px;
   height: 56px;
   line-height: 58px;
   font-size: 20px;
   font-family: "Bebas Neue", sans-serif;
-  background: linear-gradient(45deg, transparent 5%, var(--buttoncolour) 5%);
+  background: var(--buttoncolour);
   border: 0;
   color: var(--black);
   letter-spacing: 3px;
-  box-shadow: 6px 0px 0px var(--blue);
+  box-shadow: 6px 0px 0px var(--reddishpurple);
   outline: transparent;
   position: relative;
   user-select: none;
