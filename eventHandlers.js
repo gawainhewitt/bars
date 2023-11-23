@@ -211,7 +211,11 @@ class EventHandlers {
     for (let i = 0; i < chords.length; i++) {
       for (let j = 0; j < 10; j++) {
         if (key === chords[i][j] && this.chordState[i]) {
-          this.stringIsBowed("key", { string: i, position: j });
+          if(this.bowingButtonText === "bowing"){
+            this.stringIsBowed("key", { string: i, position: j });
+          } else {
+            this.stringIsPlucked("key", i);
+          } 
         }
       }
     }
