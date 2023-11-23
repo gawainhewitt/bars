@@ -5,7 +5,7 @@ class EventBinders {
     this.stringsArray = [];
     this.pluckArray = [];
     for (let i = 0; i < this.numberOfStrings; i++) {
-      this.pluckArray[i] = document.querySelector(`#pluck${i}`)
+      this.pluckArray[i] = document.querySelector(`#pluck${i}`);
       this.stringsArray[i] = [];
       for (let j = 0; j < this.numberOfZones; j++) {
         this.stringsArray[i][j] = document.querySelector(`#c${i}s${j}`);

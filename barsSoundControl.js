@@ -3,15 +3,7 @@ class BarsSoundControl {
     this.Tone = Tone;
     this.strings = ["C3", "F3", "G3", "A3"];
     this.octave = "3";
-    this.stringsStatus = [];
-    for(let i = 0; i < this.strings.length; i++){
-      this.stringsStatus[i] = {
-        playing: false,
-        time: 0
-      }
-    }
-    console.log(`strings status ${this.stringsStatus[0].time}`);
-    this.setUpInterval();
+    
     this.chordArray = [
       ["C3", "E3", "G3", "C4", "E4", "G4", "C5", "E5", "G5", "C6"],
       ["F3", "A3", "C4", "F4", "A4", "C5", "F5", "A5", "C6", "F6"],
@@ -194,58 +186,12 @@ class BarsSoundControl {
       }).connect(this.chorus);
   }
 
-  setUpInterval() {
-    setInterval(this.checktime, 125);
-  }
-
-  checktime = () => {
-    let stopNoteTime = 300;
-    // console.log("checktime)");
-    let time = performance.now();
-    for(let i = 0; i < 4; i++){
-      if (this.stringsStatus[i].playing){
-        let oldTime = this.stringsStatus[i].time;
-        let elapsedTime = time - oldTime;
-        if (elapsedTime > stopNoteTime){
-          this.stopNote(i);
-          this.stringsStatus[i].playing = false;
-        }
-      }
-    }
-  }
-
-  bowing(whichString) {
-    let time = performance.now();
-    if(!this.stringsStatus[whichString.string].playing){
-      this.bowNote(whichString);
-      console.log("bowing");
-      this.stringsStatus[whichString.string].playing = true;
-      this.stringsStatus[whichString.string].time = time;
-    } else {
-      let elapsedTime = time - this.stringsStatus[whichString.string].time;
-      // console.log(`elapsed time ${elapsedTime}`);
-      this.stringsStatus[whichString.string].time = time;
-      // console.log(this.stringsStatus[whichString.string].time);
-    }
-  }
-
   pluckNote(whichString) {
     this.sampler.triggerAttack(
       this.strings[whichString],
       this.Tone.now()
     );
   }
-
-  // notBowing(whichString) {
-  //   // console.log("not bowing");
-  //   // let time = performance.now();
-  //   // let elapsedTime = time - this.stringsStatus[whichString.string].time;
-  //   // console.log(`elapsed time ${elapsedTime}`);
-  //   // if(elapsedTime > 3000){
-  //   //   this.stopNote(whichString)
-  //   //   this.stringsStatus[whichString.string].time = time; 
-  //   // }
-  // }
 
   bowNote(whichString) {
     this.synth.triggerAttack(

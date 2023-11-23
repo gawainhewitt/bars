@@ -14,7 +14,7 @@ class DomManager {
       "backbutton"
     ];
     const chordNames = ["chord0name", "chord1name", "chord2name", "chord3name"];
-    const stringContainers = [
+    this.stringContainers = [
       "stringscontainer0",
       "stringscontainer1",
       "stringscontainer2",
@@ -31,7 +31,7 @@ class DomManager {
       ["#stringscontainer0", "#stringscontainer1", "#stringscontainer2", "#stringscontainer3"],
       ["#chordzerorightspace", "#chordonerightspace", "#chordtworightspace", "#chordthreerightspace"]
     ];
-    const chordBackgroundColours = [
+    this.chordBackgroundColours = [
       "chord0colour",
       "chord1colour",
       "chord2colour",
@@ -72,12 +72,12 @@ class DomManager {
       const element = document.querySelector(`#${name}`);
       element.className = "chordname";
     }
-    for (let i = 0; i < stringContainers.length; i++) {
-      const element = document.querySelector(`#${stringContainers[i]}`);
+    for (let i = 0; i < this.stringContainers.length; i++) {
+      const element = document.querySelector(`#${this.stringContainers[i]}`);
       element.className = "stringscontainer";
-      element.classList.add(chordBackgroundColours[i]);
+      element.classList.add(this.chordBackgroundColours[i]);
     }
-    for (let chord = 0; chord < stringContainers.length; chord++) {
+    for (let chord = 0; chord < this.stringContainers.length; chord++) {
       for (let string = 0; string < 10; string++) {
         const element = document.querySelector(`#c${chord}s${string}`);
         element.className = "string";
@@ -86,7 +86,7 @@ class DomManager {
     for (let i = 0; i < rightspaces.length; i++) {
       const element = document.querySelector(`#${rightspaces[i]}`);
       element.className = "rightspace";
-      element.classList.add(chordBackgroundColours[i]);
+      element.classList.add(this.chordBackgroundColours[i]);
     }
     // this.optionsInvisible();
 
@@ -101,7 +101,7 @@ class DomManager {
     for (let i = 0; i < optionsChordBlocks.length; i++) {
       for (let j = 0; j < optionsChordBlocks[i].length; j++) {
         const element = document.querySelector(`#${optionsChordBlocks[i][j]}`);
-        element.className = chordBackgroundColours[i];
+        element.className = this.chordBackgroundColours[i];
         element.classList.add("chordname");
         element.classList.add("flexcolumn");
       }
@@ -190,6 +190,19 @@ class DomManager {
         stringsArray[i][j].className = "invisible";
       };
     }
+  }
+
+  stringPlayColour(string) {
+    const element = document.querySelector(`#${this.stringContainers[string]}`);
+    console.log(`stringplaycolour element is ${string}`)
+    element.classList.remove(this.chordBackgroundColours[string]);
+    element.classList.add("playcolour");
+  }
+
+  stringStopColour(string) {
+    const element = document.querySelector(`#${this.stringContainers[string]}`);
+    element.classList.remove("playcolour");
+    element.classList.add(this.chordBackgroundColours[string]);
   }
 
   showPluck(numberOfStrings, pluckArray) {

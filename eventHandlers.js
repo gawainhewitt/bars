@@ -3,6 +3,13 @@ class EventHandlers {
     this.eventBinders = eventBinders;
     this.barsSoundControl = barsSoundControl;
     this.domManager = domManager;
+    this.stringsStatus = [];
+    for(let i = 0; i < this.barsSoundControl.strings.length; i++){
+      this.stringsStatus[i] = {
+        playing: false,
+        time: 0
+      }
+    }
 
     this.ongoingTouches = [];
     this.touchesOnElements = [];
@@ -37,6 +44,7 @@ class EventHandlers {
 
     this.barsSoundControl.setUpSampler(this.displayStartButton);
     this.barsSoundControl.setUpSynth();
+    this.setUpInterval();
     
     this.domManager.setInitialClass();
     this.setViewHeight();
@@ -101,20 +109,61 @@ class EventHandlers {
     this.domManager.hideStart();
   };
 
+  setUpInterval() {
+    setInterval(this.checktime, 125);
+  }
+
+  checktime = () => {
+    let stopNoteTime = 500;
+    // console.log("checktime)");
+    let time = performance.now();
+    for(let i = 0; i < 4; i++){
+      if (this.stringsStatus[i].playing){
+        let oldTime = this.stringsStatus[i].time;
+        let elapsedTime = time - oldTime;
+        if (elapsedTime > stopNoteTime){
+          this.barsSoundControl.stopNote(i);
+          this.domManager.stringStopColour(i);
+          this.stringsStatus[i].playing = false;
+        }
+      }
+    }
+  }
+
   stringIsBowed = (type, whichString) => {
     // console.log(`bow ${type}, ${whichString}`);
     if (type === "mouse") {
       if (this.mouseDown) {
-        this.barsSoundControl.bowing(whichString);
+        this.bowingControl(whichString);
       }
     } else {
-      this.barsSoundControl.bowing(whichString);
+        this.bowingControl(whichString);
     }
   };
+
+  bowingControl = (whichString) => {
+    let time = performance.now();
+    if(!this.stringsStatus[whichString.string].playing){
+      this.barsSoundControl.bowNote(whichString)
+      console.log("bowing");
+      this.stringsStatus[whichString.string].playing = true;
+      this.stringsStatus[whichString.string].time = time;
+    } else {
+      let elapsedTime = time - this.stringsStatus[whichString.string].time;
+      // console.log(`elapsed time ${elapsedTime}`);
+      this.stringsStatus[whichString.string].time = time;
+      // console.log(this.stringsStatus[whichString.string].time);
+    }
+    this.domManager.stringPlayColour(whichString.string);
+  }
 
   stringIsPlucked = (type, whichString) => {
     console.log(`pluck ${whichString}`);
     this.barsSoundControl.pluckNote(whichString);
+    this.domManager.stringPlayColour(whichString);
+    setTimeout(() => {
+      this.domManager.stringStopColour(whichString)}
+      , 300);
   }
 
   // endBow = (type, whichString) => {
