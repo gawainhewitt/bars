@@ -20,10 +20,8 @@ class EventBinders {
     this.oneKeyDropdown = document.querySelector("#select1key");
     this.twoKeyDropdown = document.querySelector("#select2key");
     this.threeKeyDropdown = document.querySelector("#select3key");
-    this.zeroChordDropdown = document.querySelector("#select0chordtype");
-    this.oneChordDropdown = document.querySelector("#select1chordtype");
-    this.twoChordDropdown = document.querySelector("#select2chordtype");
-    this.threeChordDropdown = document.querySelector("#select3chordtype");
+    this.globalChordDropdown = document.querySelector("#selectglobalchordtype");
+    
 
 
     this.portrait = window.matchMedia("(orientation: portrait)");
@@ -139,10 +137,7 @@ class EventBinders {
   }
 
   bindChordDropDown(handler) {
-    this.zeroChordDropdown.addEventListener("change", handler);
-    this.oneChordDropdown.addEventListener("change", handler);
-    this.twoChordDropdown.addEventListener("change", handler);
-    this.threeChordDropdown.addEventListener("change", handler);
+    this.globalChordDropdown.addEventListener("change", handler);
   }
 
   bindResizeWindow(handler) {

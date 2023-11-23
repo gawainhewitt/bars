@@ -126,6 +126,14 @@ h1 {
   justify-content: space-around;
 }
 
+select{
+  text-align-last: center;
+}
+
+option {
+  text-align: center;
+}
+
 .zero {
   background: var(--zerochordcolour);
   flex: 1;

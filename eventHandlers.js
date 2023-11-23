@@ -154,7 +154,6 @@ class EventHandlers {
     // console.log(e);
     // console.log(e.srcElement.id[6]);
     // console.log(e.srcElement.value);
-    this.domManager.changeChordType(e.srcElement.id[6], e.srcElement.value);
     this.barsSoundControl.chooseChord(e.srcElement.id[6], e.srcElement.value);
   };
 

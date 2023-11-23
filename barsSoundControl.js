@@ -2,6 +2,7 @@ class BarsSoundControl {
   constructor(Tone) {
     this.Tone = Tone;
     this.strings = ["C3", "F3", "G3", "A3"];
+    this.octave = "3";
     this.stringsStatus = [];
     for(let i = 0; i < this.strings.length; i++){
       this.stringsStatus[i] = {
@@ -35,41 +36,42 @@ class BarsSoundControl {
       min7: [0, 3, 7, 10, 12, 15, 19, 22, 24, 27]
     };
 
-    this.chordType = ["major", "major", "major", "minor"];
+    this.chordType = "major";
 
     this.noteOffset = [7, 5, 0, 0];
   }
 
   chooseRoot(chordPosition, rootNote) {
-    this.chords[this.chordType[chordPosition]];
 
-    // prettier-ignore
-    const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+    console.log(`chooseRoot ${chordPosition} ${rootNote}`)
+    // this.chords[this.chordType[chordPosition]];
 
-    for (let whichNote = 0; whichNote < notes.length; whichNote++) {
-      if (notes[whichNote] === rootNote)
-        this.noteOffset[chordPosition] = whichNote;
-    }
+    // // prettier-ignore
+    // const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
-    this.setChord(chordPosition);
+    // for (let whichNote = 0; whichNote < notes.length; whichNote++) {
+    //   if (notes[whichNote] === rootNote)
+    //     this.noteOffset[chordPosition] = whichNote;
+    // }
+
+    // this.setChord(chordPosition);
+
+    this.strings[chordPosition] = rootNote + this.octave;
   }
 
   chooseChord(chordPosition, chordType) {
-    this.chordType[chordPosition] = chordType;
-    this.setChord(chordPosition);
+    this.chordType = chordType;
+    console.log(`this is the end of the chord button ${chordType}`)
+    this.setChord(chordPosition); ///// this is where the chord button ends up
   }
 
   setChord(chordPosition) {
-    for (
-      let note = 0;
-      note < this.chords[this.chordType[chordPosition]].length;
-      note++
-    ) {
-      this.chordArray[chordPosition][note] =
-        this.allTheNotes[
-          this.chords[this.chordType[chordPosition]][note] +
-            this.noteOffset[chordPosition]
-        ];
+    for (let note = 0; note < this.strings.length; note++) {
+      // this.chordArray[chordPosition][note] = // need to sort this for chords to strings i think
+      //   this.allTheNotes[
+      //     this.chords[this.chordType][note] +
+      //       this.noteOffset[chordPosition]
+      //   ];
     }
   }
 

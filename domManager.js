@@ -41,30 +41,28 @@ class DomManager {
       [
         "optionszerochordname",
         "optionszerochordkey",
-        "optionszerochordchordtype",
+        "optionszerochordblock3",
         "optionszerochordstate"
       ],
       [
         "optionsonechordname",
         "optionsonechordkey",
-        "optionsonechordchordtype",
+        "optionsonechordblock3",
         "optionsonechordstate"
       ],
       [
         "optionstwochordname",
         "optionstwochordkey",
-        "optionstwochordchordtype",
+        "optionstwochordblock3",
         "optionstwochordstate"
       ],
       [
         "optionsthreechordname",
         "optionsthreechordkey",
-        "optionsthreechordchordtype",
+        "optionsthreechordblock4",
         "optionsthreechordstate"
       ]
     ];
-
-    const chordType = ["chord0type", "chord1type", "chord2type", "chord3type"];
 
     for (const name of elementNames) {
       const element = document.querySelector(`#${name}`);
@@ -107,10 +105,6 @@ class DomManager {
         element.classList.add("chordname");
         element.classList.add("flexcolumn");
       }
-    }
-    for (const name of chordType) {
-      const element = document.querySelector(`#${name}`);
-      element.className = "chordtype";
     }
   }
 
@@ -170,10 +164,6 @@ class DomManager {
 
   changeChordName(whichChord, name) {
     document.querySelector(`#chord${whichChord}name`).innerHTML = name;
-  }
-
-  changeChordType(whichChord, name) {
-    document.querySelector(`#chord${whichChord}type`).innerHTML = name;
   }
 }
 

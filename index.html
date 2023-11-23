@@ -20,11 +20,9 @@
     </div>
 
     <div id="optionscreen">
-      <div id="optionszero"></div>
-      <div id="optionsone">
-        <div id="optionszerochordname">String 1 Options</div>
-        <div id="optionszerochordkey">
-          <select name="select0key" id="select0key">
+      <div id="optionszero">
+        <div id="globalkey">
+          <select name="selectglobalkey" id="selectglobalkey">
             <option value="C" selected>Key: C</option>
             <option value="C#">Key: C#/Db</option>
             <option value="D">Key: D</option>
@@ -39,15 +37,45 @@
             <option value="B">Key: B</option>
           </select>
         </div>
-        <div class="chord0colour"></div>
-        <div id="optionszerochordchordtype">
-          <select name="select0chordtype" id="select0chordtype">
+        <div id="globalchord">
+          <select name="selectglobalchordtype" id="selectglobalchordtype">
             <option value="major">Major</option>
             <option value="minor">Minor</option>
             <option value="dom7">Dom7</option>
             <option value="maj7">Maj7</option>
             <option value="min7">Min7</option>
           </select>
+        </div>
+        <div id="globaloctave">
+          <select name="selectglobaloctave" id="selectglobaloctave">
+            <option value="2">Octave: 2</option>
+            <option value="3" selected>Octave: 3</option>
+            <option value="4">Octave: 4</option>
+            <option value="5">Octave: 5</option>
+          </select>
+        </div>
+      </div>
+      <div id="optionsone">
+        <div id="optionszerochordname">String 1 Options</div>
+        <div id="optionszerochordkey">
+          <select name="select0key" id="select0key">
+            <option value="C" selected>C</option>
+            <option value="C#">C#/Db</option>
+            <option value="D">D</option>
+            <option value="D#">D#/Eb</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">F#/Gb</option>
+            <option value="G">G</option>
+            <option value="G#">G#/Ab</option>
+            <option value="A">A</option>
+            <option value="A#">A#/Bb</option>
+            <option value="B">B</option>
+          </select>
+        </div>
+        <div class="chord0colour"></div>
+        <div id="optionszerochordblock3">
+          
         </div>
         <div class="chord0colour"></div>
         <div id="optionszerochordstate">
@@ -60,29 +88,23 @@
         <div id="optionsonechordname">String 2 Options</div>
         <div id="optionsonechordkey">
           <select name="select1key" id="select1key">
-            <option value="C">Key: C</option>
-            <option value="C#">Key: C#/Db</option>
-            <option value="D">Key: D</option>
-            <option value="D#">Key: D#/Eb</option>
-            <option value="E">Key: E</option>
-            <option value="F" selected>Key: F</option>
-            <option value="F#">Key: F#/Gb</option>
-            <option value="G">Key: G</option>
-            <option value="G#">Key: G#/Ab</option>
-            <option value="A">Key: A</option>
-            <option value="A#">Key: A#/Bb</option>
-            <option value="B">Key: B</option>
+            <option value="C">C</option>
+            <option value="C#">C#/Db</option>
+            <option value="D">D</option>
+            <option value="D#">D#/Eb</option>
+            <option value="E">E</option>
+            <option value="F" selected>F</option>
+            <option value="F#">F#/Gb</option>
+            <option value="G">G</option>
+            <option value="G#">G#/Ab</option>
+            <option value="A">A</option>
+            <option value="A#">A#/Bb</option>
+            <option value="B">B</option>
           </select>
         </div>
         <div class="chord1colour"></div>
-        <div id="optionsonechordchordtype">
-          <select name="select1chordtype" id="select1chordtype">
-            <option value="major">Major</option>
-            <option value="minor">Minor</option>
-            <option value="dom7">Dom7</option>
-            <option value="maj7">Maj7</option>
-            <option value="min7">Min7</option>
-          </select>
+        <div id="optionsonechordblock3">
+          
         </div>
         <div class="chord1colour"></div>
         <div id="optionsonechordstate">
@@ -94,29 +116,23 @@
         <div id="optionstwochordname">String 3 Options</div>
         <div id="optionstwochordkey">
           <select name="select2key" id="select2key">
-            <option value="C">Key: C</option>
-            <option value="C#">Key: C#/Db</option>
-            <option value="D">Key: D</option>
-            <option value="D#">Key: D#/Eb</option>
-            <option value="E">Key: E</option>
-            <option value="F">Key: F</option>
-            <option value="F#">Key: F#/Gb</option>
-            <option value="G" selected>Key: G</option>
-            <option value="G#">Key: G#/Ab</option>
-            <option value="A">Key: A</option>
-            <option value="A#">Key: A#/Bb</option>
-            <option value="B">Key: B</option>
+            <option value="C">C</option>
+            <option value="C#">C#/Db</option>
+            <option value="D">D</option>
+            <option value="D#">D#/Eb</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">F#/Gb</option>
+            <option value="G" selected>G</option>
+            <option value="G#">G#/Ab</option>
+            <option value="A">A</option>
+            <option value="A#">A#/Bb</option>
+            <option value="B">B</option>
           </select>
         </div>
         <div class="chord2colour"></div>
-        <div id="optionstwochordchordtype">
-          <select name="select2chordtype" id="select2chordtype">
-            <option value="major">Major</option>
-            <option value="minor">Minor</option>
-            <option value="dom7">Dom7</option>
-            <option value="maj7">Maj7</option>
-            <option value="min7">Min7</option>
-          </select>
+        <div id="optionstwochordblock3">
+          
         </div>
         <div class="chord2colour"></div>
         <div id="optionstwochordstate">
@@ -128,29 +144,23 @@
         <div id="optionsthreechordname">String 4 Options</div>
         <div id="optionsthreechordkey">
           <select name="select3key" id="select3key">
-            <option value="C">Key: C</option>
-            <option value="C#">Key: C#/Db</option>
-            <option value="D">Key: D</option>
-            <option value="D#">Key: D#/Eb</option>
-            <option value="E">Key: E</option>
-            <option value="F">Key: F</option>
-            <option value="F#">Key: F#/Gb</option>
-            <option value="G">Key: G</option>
-            <option value="G#">Key: G#/Ab</option>
-            <option value="A" selected>Key: A</option>
-            <option value="A#">Key: A#/Bb</option>
-            <option value="B">Key: B</option>
+            <option value="C">C</option>
+            <option value="C#">C#/Db</option>
+            <option value="D">D</option>
+            <option value="D#">D#/Eb</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="F#">F#/Gb</option>
+            <option value="G">G</option>
+            <option value="G#">G#/Ab</option>
+            <option value="A" selected>A</option>
+            <option value="A#">A#/Bb</option>
+            <option value="B">B</option>
           </select>
         </div>
         <div class="chord3colour"></div>
-        <div id="optionsthreechordchordtype">
-          <select name="select3chordtype" id="select3chordtype">
-            <option value="major">Major</option>
-            <option value="minor" selected>Minor</option>
-            <option value="dom7">Dom7</option>
-            <option value="maj7">Maj7</option>
-            <option value="min7">Min7</option>
-          </select>
+        <div id="optionsthreechordblock4">
+          
         </div>
         <div class="chord3colour"></div>
         <div id="optionsthreechordstate"></div>
