@@ -145,10 +145,13 @@ class DomManager {
 
   showStart() {
     document.querySelector("#infotext").innerHTML = `<h1>Bars</h1> <br>
-    <p>To play:  <br>
-    touch or click screen, <br>
-    or use ZXCV keys<br>
-    on a keyboard<br><br>
+    <p>To play:  <br><br>
+    Select bowing or plucking at the top. <br>
+    Swipe screen to bow. <br>
+    Touch or click screen to pluck. <br>
+    Use all the keys on a QWERTY keyboard.<br>
+    The rows of keys corrospond to the bars on the screen.<br>
+    Repeat alternate key strokes for long bowing<br><br>
     On Apple devices,<br>
     turn off silent mode</p><br><br>`;
   }

@@ -267,6 +267,12 @@ p {
   text-align: center;
 }
 
+@media (max-width: 800px) {
+  #infotext {
+    font-size: 0.5em;
+  }
+}
+
 .backbutton {
   display: flex;
   flex-direction: row;
